@@ -19,6 +19,10 @@ init_upload_dir()
 def index():
     return render_template('index.html')
 
+@app.route("/health-check")
+def get_health_check():
+    return jsonify({'status': 'ok'})
+
 @app.route("/users", methods=['GET', 'POST'])
 def users():
     if request.method == 'POST':
